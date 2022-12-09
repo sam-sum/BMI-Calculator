@@ -14,7 +14,6 @@
 		06329470293ED73400079A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0632946E293ED73400079A8A /* LaunchScreen.storyboard */; };
 		06FFC7832940184B007A504D /* BmiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC7822940184B007A504D /* BmiProfile.swift */; };
 		06FFC78529402450007A504D /* PersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC78429402450007A504D /* PersonInfoViewController.swift */; };
-		06FFC787294147F4007A504D /* UIImageRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC786294147F4007A504D /* UIImageRotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		06329471293ED73400079A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06FFC7822940184B007A504D /* BmiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmiProfile.swift; sourceTree = "<group>"; };
 		06FFC78429402450007A504D /* PersonInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoViewController.swift; sourceTree = "<group>"; };
-		06FFC786294147F4007A504D /* UIImageRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageRotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +62,6 @@
 				06329465293ED73200079A8A /* SceneDelegate.swift */,
 				06FFC78429402450007A504D /* PersonInfoViewController.swift */,
 				06FFC7822940184B007A504D /* BmiProfile.swift */,
-				06FFC786294147F4007A504D /* UIImageRotation.swift */,
 				06329469293ED73200079A8A /* Main.storyboard */,
 				0632946C293ED73400079A8A /* Assets.xcassets */,
 				0632946E293ED73400079A8A /* LaunchScreen.storyboard */,
@@ -147,7 +144,6 @@
 				06329464293ED73200079A8A /* AppDelegate.swift in Sources */,
 				06329466293ED73200079A8A /* SceneDelegate.swift in Sources */,
 				06FFC7832940184B007A504D /* BmiProfile.swift in Sources */,
-				06FFC787294147F4007A504D /* UIImageRotation.swift in Sources */,
 				06FFC78529402450007A504D /* PersonInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

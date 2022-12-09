@@ -228,10 +228,10 @@
                                             <constraint firstAttribute="height" constant="197" id="ufs-WI-dLn"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gauge-pointer-needle" translatesAutoresizingMaskIntoConstraints="NO" id="con-OD-E9P" userLabel="Image View needle">
-                                        <rect key="frame" x="0.0" y="64" width="345" height="197"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gauge-pointer-needle2" translatesAutoresizingMaskIntoConstraints="NO" id="con-OD-E9P" userLabel="Image View needle">
+                                        <rect key="frame" x="0.0" y="64" width="345" height="345"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="197" id="JKu-2N-q1C"/>
+                                            <constraint firstAttribute="height" constant="345" id="JKu-2N-q1C"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -241,7 +241,7 @@
                                     <constraint firstItem="D0n-13-zFh" firstAttribute="trailing" secondItem="btV-mS-nep" secondAttribute="trailing" id="FnO-6i-BFC"/>
                                     <constraint firstItem="D0n-13-zFh" firstAttribute="top" secondItem="6WC-xj-caq" secondAttribute="top" constant="8" id="MU0-0J-dpE"/>
                                     <constraint firstItem="con-OD-E9P" firstAttribute="trailing" secondItem="btV-mS-nep" secondAttribute="trailing" id="PpN-Gb-w9T"/>
-                                    <constraint firstItem="con-OD-E9P" firstAttribute="centerY" secondItem="6WC-xj-caq" secondAttribute="centerY" constant="32" id="Vm3-Ts-oLf"/>
+                                    <constraint firstItem="con-OD-E9P" firstAttribute="centerY" secondItem="6WC-xj-caq" secondAttribute="centerY" constant="106" id="Vm3-Ts-oLf"/>
                                     <constraint firstItem="D0n-13-zFh" firstAttribute="leading" secondItem="g7j-Yh-wB8" secondAttribute="leading" id="bgV-pl-IaJ"/>
                                     <constraint firstItem="con-OD-E9P" firstAttribute="leading" secondItem="btV-mS-nep" secondAttribute="leading" id="ebV-iT-j8O"/>
                                     <constraint firstAttribute="trailing" secondItem="D0n-13-zFh" secondAttribute="trailing" id="gj0-cF-Loj"/>
@@ -386,7 +386,7 @@
     </scenes>
     <resources>
         <image name="BMI gauge without needle" width="640" height="355"/>
-        <image name="gauge-pointer-needle" width="640" height="355"/>
+        <image name="gauge-pointer-needle2" width="640" height="640"/>
         <image name="person.text.rectangle" catalog="system" width="128" height="93"/>
         <image name="person.text.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>

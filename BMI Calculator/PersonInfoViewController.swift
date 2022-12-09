@@ -34,6 +34,7 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
     private var bmiProfile: BmiProfile!
     private var person: PersonInfo!
     private var personNew: PersonInfo!
+    private var saveNeedleRadians: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -294,11 +295,11 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
                 lblYouAre.text = "Your BMI result will be shown here."
                 viewBmiGaugeNeedle.isHidden = true
             }
-            // Draw the gauge pointer
+            // Draw the gauge pointer with set zero
             viewBmiGaugeNeedle.isHidden = false
-            let image = UIImage(named: "gauge-pointer-needle.png")!
-            let newImage = image.rotate(radians: rotateRadians)
-            viewBmiGaugeNeedle.image = newImage
+            viewBmiGaugeNeedle.transform = viewBmiGaugeNeedle.transform.rotated(by: CGFloat(saveNeedleRadians * -1))
+            viewBmiGaugeNeedle.transform = viewBmiGaugeNeedle.transform.rotated(by: CGFloat(rotateRadians))
+            saveNeedleRadians = rotateRadians
         } else {
             lblYourBmi.text = ""
             lblYouAre.text = "Your BMI result will be shown here."
