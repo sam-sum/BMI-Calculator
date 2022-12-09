@@ -14,6 +14,11 @@
 		06329470293ED73400079A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0632946E293ED73400079A8A /* LaunchScreen.storyboard */; };
 		06FFC7832940184B007A504D /* BmiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC7822940184B007A504D /* BmiProfile.swift */; };
 		06FFC78529402450007A504D /* PersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC78429402450007A504D /* PersonInfoViewController.swift */; };
+		06FFC78929438141007A504D /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC78829438141007A504D /* TrackingViewController.swift */; };
+		06FFC78F294393A8007A504D /* rootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC78E294393A8007A504D /* rootViewController.swift */; };
+		06FFC7922943A267007A504D /* TrackingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC7902943A267007A504D /* TrackingTableViewCell.swift */; };
+		06FFC7932943A267007A504D /* TrackingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FFC7912943A267007A504D /* TrackingTableViewCell.xib */; };
+		06FFC7952943C396007A504D /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC7942943C396007A504D /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		06329471293ED73400079A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06FFC7822940184B007A504D /* BmiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmiProfile.swift; sourceTree = "<group>"; };
 		06FFC78429402450007A504D /* PersonInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoViewController.swift; sourceTree = "<group>"; };
+		06FFC78829438141007A504D /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
+		06FFC78E294393A8007A504D /* rootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rootViewController.swift; sourceTree = "<group>"; };
+		06FFC7902943A267007A504D /* TrackingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingTableViewCell.swift; sourceTree = "<group>"; };
+		06FFC7912943A267007A504D /* TrackingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackingTableViewCell.xib; sourceTree = "<group>"; };
+		06FFC7942943C396007A504D /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +70,13 @@
 			children = (
 				06329463293ED73200079A8A /* AppDelegate.swift */,
 				06329465293ED73200079A8A /* SceneDelegate.swift */,
+				06FFC78E294393A8007A504D /* rootViewController.swift */,
 				06FFC78429402450007A504D /* PersonInfoViewController.swift */,
+				06FFC78829438141007A504D /* TrackingViewController.swift */,
+				06FFC7902943A267007A504D /* TrackingTableViewCell.swift */,
+				06FFC7912943A267007A504D /* TrackingTableViewCell.xib */,
 				06FFC7822940184B007A504D /* BmiProfile.swift */,
+				06FFC7942943C396007A504D /* Utility.swift */,
 				06329469293ED73200079A8A /* Main.storyboard */,
 				0632946C293ED73400079A8A /* Assets.xcassets */,
 				0632946E293ED73400079A8A /* LaunchScreen.storyboard */,
@@ -131,6 +146,7 @@
 				06329470293ED73400079A8A /* LaunchScreen.storyboard in Resources */,
 				0632946D293ED73400079A8A /* Assets.xcassets in Resources */,
 				0632946B293ED73200079A8A /* Main.storyboard in Resources */,
+				06FFC7932943A267007A504D /* TrackingTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06FFC78929438141007A504D /* TrackingViewController.swift in Sources */,
 				06329464293ED73200079A8A /* AppDelegate.swift in Sources */,
 				06329466293ED73200079A8A /* SceneDelegate.swift in Sources */,
+				06FFC7922943A267007A504D /* TrackingTableViewCell.swift in Sources */,
+				06FFC7952943C396007A504D /* Utility.swift in Sources */,
 				06FFC7832940184B007A504D /* BmiProfile.swift in Sources */,
+				06FFC78F294393A8007A504D /* rootViewController.swift in Sources */,
 				06FFC78529402450007A504D /* PersonInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

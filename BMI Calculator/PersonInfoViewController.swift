@@ -12,7 +12,7 @@
 import UIKit
 
 class PersonInfoViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var ageInput: UITextField!
     @IBOutlet weak var genderSelection: UISegmentedControl!
@@ -30,11 +30,13 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lblYouAre: UILabel!
     
     @IBOutlet weak var viewBmiGaugeNeedle: UIImageView!
+    @IBOutlet weak var btnSaveToTracking: UIButton!
     
     private var bmiProfile: BmiProfile!
     private var person: PersonInfo!
     private var personNew: PersonInfo!
     private var saveNeedleRadians: Double = 0
+    private var bmiFormatted: String = "0.0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,7 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
         bmiProfile = BmiProfile.sharedBmiProfile
         person = bmiProfile.getPersonInfo()
         personNew = person
+        print("PersonInfoViewController, bmiItems: \(bmiProfile.getAllItems().count)")
         
         nameInput.delegate = self
         ageInput.delegate = self
@@ -78,6 +81,13 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
             refreshBmiResult()
         }
         
+        // Disable the save button if no BMI result
+        if (Double(bmiFormatted) ?? 0) > 0 {
+            btnSaveToTracking.isEnabled = true
+        } else {
+            btnSaveToTracking.isEnabled = false
+        }
+        
         // Dismiss the keyboard if the user tap outside the text field
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tapGesture.cancelsTouchesInView = false
@@ -99,6 +109,7 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
         if let newAge = ageInput.text {
             personNew.age = Int(newAge) ?? 0
         }
+        print("unitInUse: \(unitInUse.selectedSegmentIndex)")
         if unitInUse.selectedSegmentIndex == 0 {
             // Also convert input metric values to imperial values
             // Height
@@ -113,7 +124,11 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
             if let newWeightKgs = weightKgsInput.text {
                 personNew.weightKgs = Double(newWeightKgs) ?? 0.0
             }
-            person.weightPounds = convertMetricWeight2Imperial(personNew.weightKgs)
+            personNew.weightPounds = convertMetricWeight2Imperial(personNew.weightKgs)
+            // Fill the imperial text fields
+            heightFeetInput.text = String(personNew.heightFeet)
+            heightInchesInput.text = String(personNew.heightInches)
+            weightPoundsInput.text = String(personNew.weightPounds)
         } else {
             // Also convert input imperial values to metric
             // Height
@@ -129,12 +144,21 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
                 personNew.weightPounds = Double(newWeightPounds) ?? 0.0
             }
             personNew.weightKgs = convertImperialWeight2Metric(personNew.weightPounds)
+            // Fill the metric text fields
+            heightMetersInput.text = String(personNew.heightMeters)
+            weightKgsInput.text = String(personNew.weightKgs)
         }
         
         if !(person == personNew) {
             person = personNew
             saveAllFields()
             refreshBmiResult()
+        }
+        
+        if (Double(bmiFormatted) ?? 0) > 0 {
+            btnSaveToTracking.isEnabled = true
+        } else {
+            btnSaveToTracking.isEnabled = false
         }
     }
     
@@ -194,6 +218,9 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
         heightInchesInput.text = ""
         weightPoundsInput.text = ""
         
+        viewMetric.isHidden = false
+        viewImperial.isHidden = true
+        
         lblYourBmi.text = ""
         lblYouAre.text = "Your BMI result will be shown here."
         viewBmiGaugeNeedle.isHidden = true
@@ -213,10 +240,21 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
     }
     
     // *****
-    // Handle the done button
+    // Handle the save to tracking button
     // *****
-    @IBAction func doneWasPressed(_ sender: UIButton) {
-        
+    @IBAction func SaveToTrackingWasPressed(_ sender: UIButton) {
+        print("SaveToTrackingWasPressed()")
+        let today = Date()
+        let bmiItem = BmiItem(id: "",
+                              measureDate: today,
+                              weightKgs: person.weightKgs,
+                              weightPounds: person.weightPounds,
+                              bmi: Double(bmiFormatted) ?? 0)
+        bmiProfile.addItem(bmiItem)
+        // Show the tracking tab
+        if let myTabBarController = tabBarController {
+            myTabBarController.selectedIndex = 1
+        }
     }
 
     // *****
@@ -226,7 +264,7 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
         let meters = Measurement(value: metricHeight, unit: UnitLength.meters)
         let inches = meters.converted(to: .inches)
         let feet = Int(String(format: "%.0f", (inches.value / 12))) ?? 0
-        let reminderInches: Double = inches.value - Double(feet * 12)
+        let reminderInches: Double = round((inches.value - Double(feet * 12)) * 100) / 100.0
         return (feet, reminderInches)
     }
     
@@ -234,7 +272,7 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
     // Convert the metric weight unit to imperial
     // *****
     private func convertMetricWeight2Imperial(_ metricWeight: Double) -> Double {
-        return metricWeight * 2.20462
+        return round(metricWeight * 2.20462 * 100) / 100.0
     }
     
     // *****
@@ -244,14 +282,14 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
         let measureFeet = Measurement(value: Double(feet), unit: UnitLength.feet)
         let measureInches = Measurement(value: (measureFeet.value * 12 + inches), unit: UnitLength.inches)
         let metric = measureInches.converted(to: .meters)
-        return metric.value
+        return round(metric.value * 100) / 100.0
     }
     
     // *****
     // Convert the imperial weight unit to metric
     // *****
     private func convertImperialWeight2Metric(_ pounds: Double) -> Double {
-        return pounds / 2.20462
+        return round(pounds / 2.20462 * 100) / 100.0
     }
     
     // *****
@@ -261,7 +299,7 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
         print("refreshBmiResult()")
         if person.heightMeters > 0 {
             let bmi = person.weightKgs / (person.heightMeters * person.heightMeters)
-            let bmiFormatted = String(format: "%.1f", bmi)
+            bmiFormatted = String(format: "%.1f", bmi)
             lblYourBmi.text = "Your BMI is \(bmiFormatted)"
             
             var adjustedBmi = bmi

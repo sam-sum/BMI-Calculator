@@ -96,7 +96,7 @@ class BmiProfile {
 
         // retore the BMI items
         bmiItems = []
-        if let data = defaults.value(forKey: "bmiItem") as?  Data,
+        if let data = defaults.value(forKey: "bmiItems") as?  Data,
            let storedBmiItems = try? JSONDecoder().decode([BmiItem].self, from: data) {
             bmiItems = storedBmiItems
         }
@@ -174,15 +174,28 @@ class BmiProfile {
     }
 
     // *****
-    // Save the person info to the user default
+    // Save the person info, height info to the user default
     // *****
     func savePersonInfo(newPersonInfo: PersonInfo) {
         personInfo = newPersonInfo
+        heightInfo = HeightInfo(heightMeters: personInfo.heightMeters,
+                                heightFeet: personInfo.heightFeet,
+                                heightInches: personInfo.heightInches)
         if let encoded = try? JSONEncoder().encode(personInfo) {
             let defaults = UserDefaults.standard
             defaults.setValue(encoded, forKey: "personInfo")
             defaults.synchronize()
+            // Update the height info as well if the personal info is updated successfully
+            // Do not update the height info if there is a personal info reset
+            if personInfo.heightMeters > 0 {
+                if let encoded = try? JSONEncoder().encode(heightInfo) {
+                    let defaults = UserDefaults.standard
+                    defaults.setValue(encoded, forKey: "heightInfo")
+                    defaults.synchronize()
+                }
+            }
         }
+        print("savePersonInfo, unit: \(personInfo.unit)")
     }
 
     // *****

@@ -11,7 +11,7 @@
         <!--Tracking-->
         <scene sceneID="bM3-Pq-dRw">
             <objects>
-                <viewController id="E6B-Pq-Z2N" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrackingScreen" id="E6B-Pq-Z2N" customClass="TrackingViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qr4-lv-YcA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,19 +22,70 @@
                                 <color key="textColor" red="0.94081878659999996" green="0.48980969190000001" blue="0.038766924289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-h1-K5W">
+                                <rect key="frame" x="38.666666666666671" y="107" width="35.666666666666671" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.94081878659999996" green="0.48980969190000001" blue="0.038766924289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTI-tc-5ZG">
+                                <rect key="frame" x="324" y="107" width="30" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="QjE-8L-iXL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.94081878659999996" green="0.48980969190000001" blue="0.038766924289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abU-kr-z7s">
+                                <rect key="frame" x="29" y="52" width="55" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add">
+                                    <color key="baseForegroundColor" red="0.71137356760000003" green="0.42435395720000002" blue="0.13900008799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0Nf-Wm-Usr">
+                                <rect key="frame" x="0.0" y="136" width="393" height="633"/>
+                                <color key="backgroundColor" red="0.91814285520000005" green="0.91814285520000005" blue="0.91814285520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (Kgs)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KK-Bg-LhE">
+                                <rect key="frame" x="145" y="107" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.94081878659999996" green="0.48980969190000001" blue="0.038766924289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rpB-8a-yXB"/>
                         <color key="backgroundColor" red="0.91814285520000005" green="0.91814285520000005" blue="0.91814285520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YfP-rx-jqn" firstAttribute="centerX" secondItem="Qr4-lv-YcA" secondAttribute="centerX" id="bwL-Xq-HU5"/>
-                            <constraint firstItem="YfP-rx-jqn" firstAttribute="top" secondItem="rpB-8a-yXB" secondAttribute="top" id="cuc-wp-srN"/>
+                            <constraint firstItem="0Nf-Wm-Usr" firstAttribute="leading" secondItem="rpB-8a-yXB" secondAttribute="leading" id="4e9-Fg-itY"/>
+                            <constraint firstItem="6KK-Bg-LhE" firstAttribute="leading" secondItem="Qsa-h1-K5W" secondAttribute="trailing" constant="70.666666666666657" id="78Q-VU-KWU"/>
+                            <constraint firstItem="YfP-rx-jqn" firstAttribute="centerX" secondItem="Qr4-lv-YcA" secondAttribute="centerX" id="8oj-iR-a84"/>
+                            <constraint firstItem="Qsa-h1-K5W" firstAttribute="baseline" secondItem="6KK-Bg-LhE" secondAttribute="baseline" id="BtX-Tq-Wsw"/>
+                            <constraint firstItem="YfP-rx-jqn" firstAttribute="leading" secondItem="abU-kr-z7s" secondAttribute="trailing" constant="59" id="JjT-Ad-uPJ"/>
+                            <constraint firstItem="Qsa-h1-K5W" firstAttribute="leading" secondItem="rpB-8a-yXB" secondAttribute="leading" constant="38.666666666666657" id="K4Z-cv-Z9g"/>
+                            <constraint firstItem="abU-kr-z7s" firstAttribute="centerX" secondItem="Qsa-h1-K5W" secondAttribute="centerX" id="KF6-he-MaO"/>
+                            <constraint firstItem="YfP-rx-jqn" firstAttribute="top" secondItem="rpB-8a-yXB" secondAttribute="top" id="LXF-H3-kpd"/>
+                            <constraint firstItem="0Nf-Wm-Usr" firstAttribute="bottom" secondItem="rpB-8a-yXB" secondAttribute="bottom" id="P56-0U-nQi"/>
+                            <constraint firstItem="0Nf-Wm-Usr" firstAttribute="top" secondItem="Qsa-h1-K5W" secondAttribute="bottom" constant="8" id="QRj-bJ-akx"/>
+                            <constraint firstItem="rpB-8a-yXB" firstAttribute="trailing" secondItem="iTI-tc-5ZG" secondAttribute="trailing" constant="39" id="R5r-dl-1Dl"/>
+                            <constraint firstItem="6KK-Bg-LhE" firstAttribute="baseline" secondItem="iTI-tc-5ZG" secondAttribute="baseline" id="TN5-ti-2AU"/>
+                            <constraint firstItem="abU-kr-z7s" firstAttribute="leading" secondItem="rpB-8a-yXB" secondAttribute="leading" constant="29" id="buJ-ZD-h5H"/>
+                            <constraint firstItem="iTI-tc-5ZG" firstAttribute="leading" secondItem="6KK-Bg-LhE" secondAttribute="trailing" constant="76" id="frD-Ln-uYr"/>
+                            <constraint firstItem="iTI-tc-5ZG" firstAttribute="top" secondItem="rpB-8a-yXB" secondAttribute="top" constant="48" id="g6W-x3-fUq"/>
+                            <constraint firstItem="YfP-rx-jqn" firstAttribute="centerX" secondItem="0Nf-Wm-Usr" secondAttribute="centerX" id="hGN-o9-vud"/>
+                            <constraint firstItem="abU-kr-z7s" firstAttribute="centerY" secondItem="YfP-rx-jqn" secondAttribute="centerY" id="sFv-qH-iG8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tracking" image="tablecells" catalog="system" selectedImage="tablecells.fill" id="j0a-m2-M0k"/>
+                    <connections>
+                        <outlet property="lblWeight" destination="6KK-Bg-LhE" id="l36-BL-KiN"/>
+                        <outlet property="table" destination="0Nf-Wm-Usr" id="jIq-7h-nPA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eA-zj-taS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="498"/>
+            <point key="canvasLocation" x="909.16030534351137" y="497.88732394366201"/>
         </scene>
         <!--Personal Info-->
         <scene sceneID="ZHJ-18-xzm">
@@ -260,7 +311,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijy-Q2-dgb">
                                 <rect key="frame" x="24" y="451" width="345" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Done">
+                                <buttonConfiguration key="configuration" style="filled" title="Save to tacking">
                                     <color key="baseBackgroundColor" red="0.93050223590000003" green="0.48200047019999998" blue="0.042585529390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
@@ -269,7 +320,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="doneWasPressed:" destination="elC-DK-Q4p" eventType="touchUpInside" id="qRQ-y7-fm9"/>
+                                    <action selector="SaveToTrackingWasPressed:" destination="elC-DK-Q4p" eventType="touchUpInside" id="Ztq-fQ-bl3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTR-wR-Wsn">
@@ -279,7 +330,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Reset"/>
                                 <connections>
-                                    <action selector="resetWasPressed:" destination="elC-DK-Q4p" eventType="touchUpInside" id="ejk-4S-ecv"/>
+                                    <action selector="resetWasPressed:" destination="elC-DK-Q4p" eventType="touchUpInside" id="eQL-42-OZA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -341,6 +392,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="ageInput" destination="itp-L5-ZbM" id="7q8-uf-1OR"/>
+                        <outlet property="btnSaveToTracking" destination="ijy-Q2-dgb" id="6QN-ne-fX3"/>
                         <outlet property="genderSelection" destination="qjc-1J-bgi" id="VZL-E2-lWd"/>
                         <outlet property="heightFeetInput" destination="dCH-Nb-2UI" id="Adq-yc-lv8"/>
                         <outlet property="heightInchesInput" destination="LQU-oB-s4I" id="JZO-2A-wAt"/>
@@ -360,10 +412,10 @@
             </objects>
             <point key="canvasLocation" x="909.16030534351137" y="-109.1549295774648"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Root View Controller-->
         <scene sceneID="QzH-gy-PbD">
             <objects>
-                <tabBarController id="9KH-R3-ETO" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="rootViewController" id="9KH-R3-ETO" customClass="rootViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aJc-GZ-yI5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
