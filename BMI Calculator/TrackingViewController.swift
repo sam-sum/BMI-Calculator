@@ -27,7 +27,7 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         table.register(TrackingTableViewCell.nib(), forCellReuseIdentifier: TrackingTableViewCell.identifier)
         table.dataSource = self
         table.rowHeight = 60
-        //tableView.keyboardDismissMode = .onDrag
+        // Prepare the long press gesture
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
         longPressGesture.delegate = self
         self.table.addGestureRecognizer(longPressGesture)
@@ -36,6 +36,10 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Retrieve the user default values
+        initalizeValues()
+    }
+
+    func initalizeValues() {
         bmiProfile = BmiProfile.sharedBmiProfile
         bmiItems = bmiProfile.getAllBmiItems()
         print("TrackingViewController, bmiItems: \(bmiItems.count)")
@@ -47,7 +51,7 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         table.reloadData()
     }
-
+    
     // *****
     // define number of total cells (row) in the table view
     // *****
@@ -80,8 +84,15 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
             let deleteItem = self.bmiItems[indexPath.row]
             self.bmiProfile.removeItem(deleteItem)
             bmiItems = bmiProfile.getAllBmiItems()
-            table.deleteRows(at: [indexPath], with: .fade)
-            table.reloadData()
+            
+            if self.bmiProfile.count() == 0 {
+                if let myTabBarController = tabBarController {
+                    myTabBarController.selectedIndex = 0
+                }
+            } else {
+                table.deleteRows(at: [indexPath], with: .fade)
+                table.reloadData()
+            }
         }
     }
 
@@ -99,8 +110,39 @@ class TrackingViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // *****
+    // Show the input screen with a row item passed to it for editing
+    // *****
     func editRow(with tag: Int) {
         print ("Editing row: \(tag)")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "InputScreen") as! InputViewController
+        vc.editingItem = bmiItems[tag]
+        vc.isModalInPresentation = true
+        vc.delegate = self
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    // *****
+    // Show the input screen with a nil item passed to it for adding
+    // *****
+    @IBAction func addDidPressed(_ sender: UIButton) {
+        print ("Add a row")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "InputScreen") as! InputViewController
+        vc.editingItem = nil
+        vc.isModalInPresentation = true
+        vc.delegate = self
+        self.present(vc, animated: true, completion: nil)
+    }
+}
 
+// *****
+// Triggered after the input screen is dismissed to refresh tha table view
+// *****
+extension TrackingViewController: InputViewControllerDelegate {
+    func inputViewControllerDidFinish() {
+        print("InputViewControllerDidFinish called")
+        initalizeValues()
     }
 }

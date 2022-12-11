@@ -19,6 +19,7 @@
 		06FFC7922943A267007A504D /* TrackingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC7902943A267007A504D /* TrackingTableViewCell.swift */; };
 		06FFC7932943A267007A504D /* TrackingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06FFC7912943A267007A504D /* TrackingTableViewCell.xib */; };
 		06FFC7952943C396007A504D /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC7942943C396007A504D /* Utility.swift */; };
+		06FFC7972943FA1A007A504D /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FFC7962943FA1A007A504D /* InputViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		06FFC7902943A267007A504D /* TrackingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingTableViewCell.swift; sourceTree = "<group>"; };
 		06FFC7912943A267007A504D /* TrackingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackingTableViewCell.xib; sourceTree = "<group>"; };
 		06FFC7942943C396007A504D /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		06FFC7962943FA1A007A504D /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				06FFC78829438141007A504D /* TrackingViewController.swift */,
 				06FFC7902943A267007A504D /* TrackingTableViewCell.swift */,
 				06FFC7912943A267007A504D /* TrackingTableViewCell.xib */,
+				06FFC7962943FA1A007A504D /* InputViewController.swift */,
 				06FFC7822940184B007A504D /* BmiProfile.swift */,
 				06FFC7942943C396007A504D /* Utility.swift */,
 				06329469293ED73200079A8A /* Main.storyboard */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06FFC7972943FA1A007A504D /* InputViewController.swift in Sources */,
 				06FFC78929438141007A504D /* TrackingViewController.swift in Sources */,
 				06329464293ED73200079A8A /* AppDelegate.swift in Sources */,
 				06329466293ED73200079A8A /* SceneDelegate.swift in Sources */,

@@ -43,6 +43,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Add">
                                     <color key="baseForegroundColor" red="0.71137356760000003" green="0.42435395720000002" blue="0.13900008799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addDidPressed:" destination="E6B-Pq-Z2N" eventType="touchUpInside" id="467-7V-WXv"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0Nf-Wm-Usr">
                                 <rect key="frame" x="0.0" y="136" width="393" height="633"/>
@@ -85,7 +88,97 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eA-zj-taS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="909.16030534351137" y="497.88732394366201"/>
+            <point key="canvasLocation" x="909" y="544"/>
+        </scene>
+        <!--Input View Controller-->
+        <scene sceneID="1D8-W1-2Q8">
+            <objects>
+                <viewController storyboardIdentifier="InputScreen" id="Rnz-Lx-qXh" customClass="InputViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u9g-GS-xh7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OyY-5L-PAG">
+                                <rect key="frame" x="60" y="766" width="92" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="tray.and.arrow.down.fill" catalog="system" title="Save">
+                                    <color key="baseForegroundColor" red="0.92361670730000001" green="0.47803878779999998" blue="0.033264521509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveDidPressed:" destination="Rnz-Lx-qXh" eventType="touchUpInside" id="LmL-vL-LJx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jx0-bS-OxR">
+                                <rect key="frame" x="227" y="766" width="108" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.bin.fill" catalog="system" title="Cancel">
+                                    <color key="baseForegroundColor" red="0.92361670730000001" green="0.47803878779999998" blue="0.033264521509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelDidPressed:" destination="Rnz-Lx-qXh" eventType="touchUpInside" id="005-Bs-kW9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMI Tracking Input" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ria-8J-jvq">
+                                <rect key="frame" x="119" y="76" width="153" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.94081878659999996" green="0.48980969190000001" blue="0.038766924289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Measure Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMo-s8-HVg">
+                                <rect key="frame" x="36" y="121" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.92361670730000001" green="0.47803878779999998" blue="0.033264521509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="gdo-zb-i4D">
+                                <rect key="frame" x="37" y="150" width="320" height="307"/>
+                                <color key="tintColor" red="0.92361670730000001" green="0.47803878779999998" blue="0.033264521509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (Kgs)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of0-KX-V71">
+                                <rect key="frame" x="36" y="488" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.92361670730000001" green="0.47803878779999998" blue="0.033264521509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJd-VW-rZK">
+                                <rect key="frame" x="36" y="517" width="163" height="34"/>
+                                <color key="textColor" red="0.32970762250000002" green="0.1635984778" blue="0.016953865070000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pR5-wZ-s3b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gdo-zb-i4D" firstAttribute="centerX" secondItem="u9g-GS-xh7" secondAttribute="centerX" id="5IX-qC-Tju"/>
+                            <constraint firstItem="ria-8J-jvq" firstAttribute="centerX" secondItem="u9g-GS-xh7" secondAttribute="centerX" constant="-1" id="98k-xF-yHE"/>
+                            <constraint firstItem="cMo-s8-HVg" firstAttribute="leading" secondItem="nJd-VW-rZK" secondAttribute="leading" id="L5y-cW-qAE"/>
+                            <constraint firstItem="pR5-wZ-s3b" firstAttribute="bottom" secondItem="OyY-5L-PAG" secondAttribute="bottom" constant="17" id="Mbe-uw-uGx"/>
+                            <constraint firstItem="cMo-s8-HVg" firstAttribute="leading" secondItem="pR5-wZ-s3b" secondAttribute="leading" constant="36" id="NHS-ez-XLS"/>
+                            <constraint firstItem="gdo-zb-i4D" firstAttribute="top" secondItem="cMo-s8-HVg" secondAttribute="bottom" constant="8.0000000000000284" id="OmT-tY-SCl"/>
+                            <constraint firstItem="gdo-zb-i4D" firstAttribute="top" secondItem="cMo-s8-HVg" secondAttribute="bottom" constant="8" symbolic="YES" id="Pnw-tz-cL7"/>
+                            <constraint firstItem="nJd-VW-rZK" firstAttribute="leading" secondItem="pR5-wZ-s3b" secondAttribute="leading" constant="36" id="Y2U-U8-03g"/>
+                            <constraint firstItem="of0-KX-V71" firstAttribute="top" secondItem="gdo-zb-i4D" secondAttribute="bottom" constant="31.333333333333258" id="anf-Ua-zlM"/>
+                            <constraint firstItem="OyY-5L-PAG" firstAttribute="leading" secondItem="pR5-wZ-s3b" secondAttribute="leading" constant="60" id="cZy-Kq-LZv"/>
+                            <constraint firstItem="OyY-5L-PAG" firstAttribute="baseline" secondItem="Jx0-bS-OxR" secondAttribute="baseline" id="eoL-wd-dlE"/>
+                            <constraint firstItem="cMo-s8-HVg" firstAttribute="leading" secondItem="of0-KX-V71" secondAttribute="leading" id="gPm-10-qde"/>
+                            <constraint firstItem="nJd-VW-rZK" firstAttribute="top" secondItem="of0-KX-V71" secondAttribute="bottom" constant="8" id="i4D-93-8XK"/>
+                            <constraint firstItem="ria-8J-jvq" firstAttribute="top" secondItem="pR5-wZ-s3b" secondAttribute="top" constant="17" id="khh-G2-W7v"/>
+                            <constraint firstItem="cMo-s8-HVg" firstAttribute="top" secondItem="ria-8J-jvq" secondAttribute="bottom" constant="24" id="p6S-fx-JwD"/>
+                            <constraint firstItem="pR5-wZ-s3b" firstAttribute="trailing" secondItem="nJd-VW-rZK" secondAttribute="trailing" constant="194" id="quL-6j-Vtt"/>
+                            <constraint firstItem="Jx0-bS-OxR" firstAttribute="leading" secondItem="OyY-5L-PAG" secondAttribute="trailing" constant="75" id="veD-2d-JYE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="gdo-zb-i4D" id="63l-Fi-kag"/>
+                        <outlet property="lblTitle" destination="ria-8J-jvq" id="UKw-Lh-Zgu"/>
+                        <outlet property="lblWeight" destination="of0-KX-V71" id="Z6q-Ig-Q8p"/>
+                        <outlet property="weightInput" destination="nJd-VW-rZK" id="e3o-Mt-MrI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5L-TE-Kkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742.7480916030534" y="543.66197183098598"/>
         </scene>
         <!--Personal Info-->
         <scene sceneID="ZHJ-18-xzm">
@@ -443,6 +536,8 @@
         <image name="person.text.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>
         <image name="tablecells.fill" catalog="system" width="128" height="93"/>
+        <image name="tray.and.arrow.down.fill" catalog="system" width="128" height="115"/>
+        <image name="xmark.bin.fill" catalog="system" width="128" height="92"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -30,7 +30,7 @@ class TrackingTableViewCell: UITableViewCell {
     func configure(with item: BmiItem, row: Int, unit: Unit) {
         self.tagRow = row
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+        dateFormatterPrint.dateFormat = "MMM dd, yyyy"
         lblDate.text = dateFormatterPrint.string(from: item.measureDate)
         if unit == Unit.Metric {
             lblWeight.text = String(format: "%.2f", item.weightKgs)

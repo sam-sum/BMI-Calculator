@@ -119,12 +119,12 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
             if let newWeightKgs = weightKgsInput.text {
                 personNew.weightKgs = Double(newWeightKgs) ?? 0.0
             }
-            (personNew.heightFeet, personNew.heightInches) = convertMetricHeight2Imperial(personNew.heightMeters)
+            (personNew.heightFeet, personNew.heightInches) = Utility.convertMetricHeight2Imperial(personNew.heightMeters)
             // Weight
             if let newWeightKgs = weightKgsInput.text {
                 personNew.weightKgs = Double(newWeightKgs) ?? 0.0
             }
-            personNew.weightPounds = convertMetricWeight2Imperial(personNew.weightKgs)
+            personNew.weightPounds = Utility.convertMetricWeight2Imperial(personNew.weightKgs)
             // Fill the imperial text fields
             heightFeetInput.text = String(personNew.heightFeet)
             heightInchesInput.text = String(personNew.heightInches)
@@ -138,12 +138,12 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
             if let newHeightInches = heightInchesInput.text {
                 personNew.heightInches = Double(newHeightInches) ?? 0.0
             }
-            personNew.heightMeters = convertImperialHeight2Metric(feet: personNew.heightFeet, inches: personNew.heightInches)
+            personNew.heightMeters = Utility.convertImperialHeight2Metric(feet: personNew.heightFeet, inches: personNew.heightInches)
             // Weight
             if let newWeightPounds = weightPoundsInput.text {
                 personNew.weightPounds = Double(newWeightPounds) ?? 0.0
             }
-            personNew.weightKgs = convertImperialWeight2Metric(personNew.weightPounds)
+            personNew.weightKgs = Utility.convertImperialWeight2Metric(personNew.weightPounds)
             // Fill the metric text fields
             heightMetersInput.text = String(personNew.heightMeters)
             weightKgsInput.text = String(personNew.weightKgs)
@@ -257,41 +257,6 @@ class PersonInfoViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    // *****
-    // Convert the metric height unit to imperial
-    // *****
-    private func convertMetricHeight2Imperial(_ metricHeight: Double) -> (Int, Double) {
-        let meters = Measurement(value: metricHeight, unit: UnitLength.meters)
-        let inches = meters.converted(to: .inches)
-        let feet = Int(String(format: "%.0f", (inches.value / 12))) ?? 0
-        let reminderInches: Double = round((inches.value - Double(feet * 12)) * 100) / 100.0
-        return (feet, reminderInches)
-    }
-    
-    // *****
-    // Convert the metric weight unit to imperial
-    // *****
-    private func convertMetricWeight2Imperial(_ metricWeight: Double) -> Double {
-        return round(metricWeight * 2.20462 * 100) / 100.0
-    }
-    
-    // *****
-    // Convert the imperial height unit to metric
-    // *****
-    private func convertImperialHeight2Metric(feet: Int, inches: Double) -> Double {
-        let measureFeet = Measurement(value: Double(feet), unit: UnitLength.feet)
-        let measureInches = Measurement(value: (measureFeet.value * 12 + inches), unit: UnitLength.inches)
-        let metric = measureInches.converted(to: .meters)
-        return round(metric.value * 100) / 100.0
-    }
-    
-    // *****
-    // Convert the imperial weight unit to metric
-    // *****
-    private func convertImperialWeight2Metric(_ pounds: Double) -> Double {
-        return round(pounds / 2.20462 * 100) / 100.0
-    }
-    
     // *****
     // Refresh the BMI output area
     // *****

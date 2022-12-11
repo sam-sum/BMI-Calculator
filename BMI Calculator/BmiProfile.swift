@@ -178,9 +178,6 @@ class BmiProfile {
     // *****
     func savePersonInfo(newPersonInfo: PersonInfo) {
         personInfo = newPersonInfo
-        heightInfo = HeightInfo(heightMeters: personInfo.heightMeters,
-                                heightFeet: personInfo.heightFeet,
-                                heightInches: personInfo.heightInches)
         if let encoded = try? JSONEncoder().encode(personInfo) {
             let defaults = UserDefaults.standard
             defaults.setValue(encoded, forKey: "personInfo")
@@ -188,6 +185,9 @@ class BmiProfile {
             // Update the height info as well if the personal info is updated successfully
             // Do not update the height info if there is a personal info reset
             if personInfo.heightMeters > 0 {
+                heightInfo = HeightInfo(heightMeters: personInfo.heightMeters,
+                                        heightFeet: personInfo.heightFeet,
+                                        heightInches: personInfo.heightInches)
                 if let encoded = try? JSONEncoder().encode(heightInfo) {
                     let defaults = UserDefaults.standard
                     defaults.setValue(encoded, forKey: "heightInfo")
@@ -197,7 +197,7 @@ class BmiProfile {
         }
         print("savePersonInfo, unit: \(personInfo.unit)")
     }
-
+/*
     // *****
     // Save the height info to the user default
     // *****
@@ -209,7 +209,7 @@ class BmiProfile {
             defaults.synchronize()
         }
     }
-    
+*/
     // *****
     // Save the BMI tracking list to the user default
     // *****
