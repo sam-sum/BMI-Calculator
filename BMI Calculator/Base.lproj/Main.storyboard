@@ -404,7 +404,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijy-Q2-dgb">
                                 <rect key="frame" x="24" y="451" width="345" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Save to tracking">
+                                <buttonConfiguration key="configuration" style="filled" title="Save to BMI tracking">
                                     <color key="baseBackgroundColor" red="0.93050223590000003" green="0.48200047019999998" blue="0.042585529390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
