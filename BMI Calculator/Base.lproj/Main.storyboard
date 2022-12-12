@@ -131,7 +131,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="gdo-zb-i4D">
-                                <rect key="frame" x="37" y="150" width="320" height="307"/>
+                                <rect key="frame" x="36.666666666666657" y="150.00000000000003" width="320" height="306.66666666666674"/>
                                 <color key="tintColor" red="0.92361670730000001" green="0.47803878779999998" blue="0.033264521509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (Kgs)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of0-KX-V71">
@@ -404,7 +404,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijy-Q2-dgb">
                                 <rect key="frame" x="24" y="451" width="345" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Save to tacking">
+                                <buttonConfiguration key="configuration" style="filled" title="Save to tracking">
                                     <color key="baseBackgroundColor" red="0.93050223590000003" green="0.48200047019999998" blue="0.042585529390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
